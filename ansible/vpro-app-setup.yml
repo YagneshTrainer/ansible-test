@@ -5,6 +5,9 @@
   vars:
     timestamp: "{{ansible_date_time.date}}_{{ansible_date_time.hour}}_{{ansible_date_time.minute}}"
   tasks:
+    - name: Debug Variables
+      debug: 
+        msg: "USER={{ USER }}, PASS={{ PASS }}, nexusip={{ nexusip }}, reponame={{ reponame }}, groupid={{ groupid }}, time={{ time }}, build={{ build }}, vprofile_version={{ vprofile_version }}"
     - name: Download latest VProfile.war from nexus
       get_url:
         url: "http://{{USER}}:{{PASS}}@{{nexusip}}:8081/repository/{{reponame}}/{{groupid}}/{{time}}/{{build}}/{{vprofile_version}}"

@@ -6,7 +6,7 @@
 
   tasks:
     - name: Install JDK on Centos 6/7
-      yum:
+      dnf:
         name: java-11-amazon-corretto.x86_64
         state: present
       when: ansible_os_family == 'RedHat'
